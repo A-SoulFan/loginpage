@@ -19,6 +19,5 @@ export const verifyEmail = async (params: { code: string, id: string }): Promise
 
 export const login = async (params: { username: string, password: string }): Promise<LoginResponse> => {
   const res:AxiosResponse<LoginResponse> = await http.post('user/user/login', JSON.stringify(params))
-  console.log(res);
   return res.data
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import {message} from "ant-design-vue";
 
 export const http = axios.create({
-  baseURL: 'http://106.14.79.196:8201/',
+  baseURL: 'http://api.asoulfan.com/',
   timeout: 10000,
 })
 

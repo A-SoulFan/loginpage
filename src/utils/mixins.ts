@@ -6,7 +6,7 @@ import {message} from 'ant-design-vue'
 
 export let isShowTime = ref<boolean>(false) //切换发送验证码的文字
 export let currentStep = ref<number>(0) //步骤条进度 0 - 1 - 2
-export let sendCodeTime = ref<number>(5) //重新发送验证码时间
+export let sendCodeTime = ref<number>(60) //重新发送验证码时间
 
 // //设置input框的动画
 export const bindAnimation = (type: "focus" | "blur", nthEl: number, e?: MouseEvent): void => {
@@ -26,7 +26,7 @@ export const sendCode = (email: string,id:string): void => {
   if (id) {
     sendEmailCode({email, id}).then(res => {
       if (res.code === 200) {
-        message.success(res.message || '发送成功')
+        message.success('发送成功')
       } else {
         message.warning(res.message || '发送失败')
       }

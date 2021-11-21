@@ -44,9 +44,13 @@ interface RequestResponse {
 }
 
 interface LoginResponse {
-  token:string //访问令牌
-  refreshToken:string //刷新令牌
-  tokenHead:string //访问令牌头前缀
+  data:{
+    token:string //访问令牌
+    refreshToken:string //刷新令牌
+    tokenHead:string //访问令牌头前缀
+    userId:number,
+    nickName:string
+  }
   code?:number,
   message?:string
 }

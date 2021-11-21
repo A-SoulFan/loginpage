@@ -49,7 +49,7 @@
           <a-form-item style="background-color: unset;">
             <a-button type="primary" class="login-btn" html-type="submit">登陆</a-button>
           </a-form-item>
-<!--          <router-link to="/changePsw" class="changePsw">忘记密码?</router-link>-->
+          <!--          <router-link to="/changePsw" class="changePsw">忘记密码?</router-link>-->
           <a class="changePsw" @click="Tips">忘记密码?</a>
         </a-form>
       </template>
@@ -74,18 +74,19 @@ export default defineComponent({
     let title = ref<ToggleTitle>(ToggleTitle.register)
 
     const formState = reactive<Login>({
-      username: '2465903541',
-      password: '121314'
+      username: '',
+      password: ''
     })
 
     //数据校验通过触发
     const submit = (values: Login): void => {
       login(values).then(res => {
-       if (res.code === 500) {
-        message.error(res.message || '用户名或密码错误')
-       }else {
-         message.success( '登陆成功')
-       }
+        if (res.code === 200) {
+          message.success('登陆成功')
+          document.cookie = `asoulFanToken=${res.data.token}`
+        } else {
+          message.error(res.message || '用户名或密码错误')
+        }
       })
     }
     const Tips = () => {
