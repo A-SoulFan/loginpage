@@ -83,7 +83,7 @@ export default defineComponent({
       login(values).then(res => {
         if (res.code === 200) {
           message.success('登陆成功')
-          document.cookie = `asoulFanToken=${res.data.token}; domain=.asoulfan.com`
+          document.cookie = `asoulFanToken=${res.data.token}; domain=.asoulfan.net`
         } else {
           message.error(res.message || '用户名或密码错误')
         }
